@@ -1,0 +1,10 @@
+math
+tqdm
+timm
+numpy
+einops
+argparse
+matplotlib
+tensorboardX
+opencv-python
+xml.etree.ElementTree
