@@ -3,12 +3,12 @@
 
 
 
-- [DataSet](#quick-start)
-- [Quick-start](#description)
+- [DataSet](#Dataset)
+- [Quick-start](#Quick start)
   - [Training](#training)
-  - [Detect](#prediction)
-- [Pretrained model](#pretrained-model)
-- [Data](#data)
+  - [Detect](#Detect)
+- [Pretrained model](#Pretrained model)
+- [Acknowledgement](#Acknowledgement)
 
 ## Dataset
 We trained and tested our proposed SiamVIT using the public infrared [dataset](https://www.scidb.cn/en/detail?dataSetId=720626420933459968), which contains 22 sequences of approximately 16,000 images. we randomly selected 1,000 images for testing.
