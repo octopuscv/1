@@ -4,7 +4,7 @@
 
 
 - [DataSet](#Dataset)
-- [Quick-start](#Quick_start)
+- [Quick start](#Quick_start)
   - [Training](#training)
   - [Detect](#Detect)
 - [Pretrained model](#Pretrained_model)
