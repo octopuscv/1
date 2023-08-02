@@ -4,15 +4,15 @@
 
 
 - [DataSet](#Dataset)
-- [Quick-start](#Quick start)
+- [Quick-start](#Quick_start)
   - [Training](#training)
   - [Detect](#Detect)
-- [Pretrained model](#Pretrained model)
+- [Pretrained model](#Pretrained_model)
 - [Acknowledgement](#Acknowledgement)
 
 ## Dataset
 We trained and tested our proposed SiamVIT using the public infrared [dataset](https://www.scidb.cn/en/detail?dataSetId=720626420933459968), which contains 22 sequences of approximately 16,000 images. we randomly selected 1,000 images for testing.
-## Quick start
+## Quick_start
 1. [Install CUDA](https://developer.nvidia.com/cuda-downloads)
 
 2. [Install PyTorch 1.7.1 or later](https://pytorch.org/get-started/locally/)
@@ -32,7 +32,7 @@ python trian.py
 ```bash
 python detect.py
 ```
-## Pretrained model
+## Pretrained_model
 Pre-trained weights `best_model_frame1_num_head8.pth` and `best_model_frame3_num_head8.pth` for these models are provided  [here](https://drive.google.com/drive/folders/1eDF10eWgL-w61E0iz0nfde37yixTY6ip?usp=sharing).
 
 ## Acknowledgement
