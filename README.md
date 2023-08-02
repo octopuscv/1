@@ -35,5 +35,5 @@ python detect.py
 ## Pretrained model
 Pre-trained weights `best_model_frame1_num_head8.pth` and `best_model_frame3_num_head8.pth` for these models are provided  [here](https://drive.google.com/drive/folders/1eDF10eWgL-w61E0iz0nfde37yixTY6ip?usp=sharing).
 
-## ## Acknowledgement
-Part of the code is borrowed from [VIT](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/vision_transformer.py) and [GroupViT](https://github.com/NVlabs/GroupViT).(cheers to the community as well)
+## Acknowledgement
+Part of the code is borrowed from [VIT](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/vision_transformer.py) and [GroupViT](https://github.com/NVlabs/GroupViT). (cheers to the community as well)
