@@ -10,15 +10,15 @@ from torch.utils.tensorboard import SummaryWriter
 
 
 parse = argparse.ArgumentParser()
-parse.add_argument('--train_path' , type = str, default = './data/data12', help = "trainset path")
-parse.add_argument('--ano_path', type=str, default='./Annotations',help = "xml files path" )
+parse.add_argument('--train_path' , type = str, default = 'train_path', help = "trainset path")
+parse.add_argument('--ano_path', type=str, default='ano_path',help = "xml files path" )
 parse.add_argument('--epoch',  type = int,  default = 101,help = "epochs")
 parse.add_argument('--image_size' , type = int, default = 256, help = "image_size")
 parse.add_argument('--patch_size', type = int, default = 16, help = "set patch_size")
 parse.add_argument('--Frames', type = int, default = 3, help = "select the number of frames")
 parse.add_argument('--Interval_period', type = int, default = 5, help="model save interval period")
 parse.add_argument('--lr', type=float, default = 1e-5, help = "learning rate")
-parse.add_argument('--is_single_sequences', type=float, default = 1e-5, help = "single/multiple sequences")
+parse.add_argument('--is_single_sequences', type=bool, default = True, help = "single/multiple sequences")
 args = parse.parse_args(args=[])
 
 device = 'cuda' if torch.cuda.is_available else 'cpu'

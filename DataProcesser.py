@@ -15,27 +15,27 @@ class DataProcess(Dataset):
         self.imagesize = args.image_size
         self.tokenRawTotal = self.imagesize // self.tokensize
 
-    def filelist(args, root_path, FramesNumber):
+    def filelist(self, args, root_path, FramesNumber):
         img_path = []  
-        # single sequence
+        # multiple sequence
         if args.is_single_sequences == True:
-            for dirs in os.listdir(root_path):
-                datalist = [files for files in os.listdir(os.path.join(root_path, dirs))]
-                datalist.sort(key=lambda x: int(x.split('.')[0]))
-                datalist = [os.path.join(root_path,dirs,i) for i in datalist]
-                datalist = [datalist[i : i+FramesNumber] for i in range(0,len(datalist)-FramesNumber)]
-                for item in datalist:
-                    img_path.append(item)
-
-        # multiple sequences
-        else:
             datalist = [files for files in os.listdir(root_path)]
             datalist.sort(key=lambda x: int(x.split('.')[0]))
             datalist = [os.path.join(root_path,i) for i in datalist]
             datalist = [datalist[i : i+FramesNumber] for i in range(0,len(datalist)-FramesNumber)]
             for item in datalist:
                 img_path.append(item)
+            
 
+        # single sequences
+        else:
+           for dirs in os.listdir(root_path):
+                datalist = [files for files in os.listdir(os.path.join(root_path, dirs))]
+                datalist.sort(key=lambda x: int(x.split('.')[0]))
+                datalist = [os.path.join(root_path,dirs,i) for i in datalist]
+                datalist = [datalist[i : i+FramesNumber] for i in range(0,len(datalist)-FramesNumber)]
+                for item in datalist:
+                    img_path.append(item)
         return img_path
 
     def xmllist(self,root_path,file_type=('xml')):
@@ -46,8 +46,8 @@ class DataProcess(Dataset):
 
     def __getitem__(self, index):
         img_file = self.img_path[index]
-        xml_file = os.path.join(self.ano_path,'/'.join(img_file[-1].split('/')[-2:]).replace('.bmp','.xml'))
-        assert os.path.exists(xml_file),"{} file not found!".format(xml_file)
+        xml_file = os.path.join(self.ano_path,'/'.join(img_file[0].split('/')[-2:]).replace('.bmp','.xml'))
+        # assert os.path.exists(xml_file),"{} file not found!".format(xml_file)
         xy_centers = []
         tokenIndex = []
         xyPostionIndex = []
@@ -117,5 +117,5 @@ class DataProcess(Dataset):
 
 def buildDataLoader(args,train_path,Frames,ano_path,transform):
     dataset = DataProcess(args, train_path, ano_path=ano_path, Frames=Frames, transform=transform)
-    trainloader = DataLoader(dataset, batch_size=32, shuffle=True, num_workers=8, drop_last=True, pin_memory=True)
+    trainloader = DataLoader(dataset, batch_size=64, shuffle=True, num_workers=8, drop_last=True, pin_memory=True)
     return trainloader
